@@ -4,12 +4,53 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="../styles/login/login.css">
     <title>Login/Signup</title>
     <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet"> 
 </head>
 
 <body>
+
+<div class="loginSignup-container">
+
+    <div class = "nav">
+        <a class="signupBtn">Sign-up</a>
+        <a class="loginBtn">Login</a>
+    </div>
+
+ 
+    
+
+    <form class="inputFields">
+        <div class="emailField">
+            <label for="email" >Email: </label>
+            <input id="email" type = "email" name="email">
+        </div>
+        <div class="pwField">
+            <label for="password">Password: </label>
+        <input id="password" type = "password" name="password">
+        </div>
+        <div class="typeField">
+            <label for="userType">User Type: </label>
+            <select id="userType">
+                <option>Admin</option>
+                <option>Normal</option>
+            </select>
+        </div>
+        
+        <input id="submit" type="submit" value="Sign-up">
+        
+    </form>
+
+
+</div>
+
+
+
+
+
+<script src="../clientJS/login.js"></script>
+
 
 
 </body>
