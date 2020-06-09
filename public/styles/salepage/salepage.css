@@ -1,0 +1,235 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 480px;
+  font-family: 'Maven Pro', sans-serif;
+  background-color: rgba(244, 165, 96, 0.479);
+}
+
+ul, li, a {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
+.navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1em;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  -webkit-transition: all ease-in 150ms;
+  transition: all ease-in 150ms;
+}
+
+.navigation ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  margin-right: 1em;
+}
+
+.navigation li {
+  background-color: rgba(244, 165, 96, 0.596);
+  padding: 1em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.navigation li:hover {
+  background-color: rgba(46, 139, 86, 0.562);
+}
+
+.navigation a {
+  padding: 1em;
+  display: inline-block;
+  letter-spacing: .2em;
+}
+
+.navigation a:hover {
+  color: white;
+  background-color: #f4a560;
+}
+
+main {
+  position: relative;
+  margin-top: 0;
+}
+
+.title {
+  text-align: center;
+  width: 90%;
+  margin: 2em auto 0 auto;
+  text-decoration: underline;
+}
+
+.product-grid {
+  letter-spacing: .05em;
+  line-height: 1.5em;
+  margin: 2em auto;
+  width: 90%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  gap: 3em;
+}
+
+@media (min-width: 500px) {
+  .product-grid {
+    -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+.product-grid img {
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.096);
+}
+
+.product-grid .product {
+  width: 100%;
+  margin-bottom: 1em;
+  position: relative;
+  -webkit-transition: all ease-in-out .1s;
+  transition: all ease-in-out .1s;
+}
+
+.product-grid .product:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.product-grid .product a {
+  cursor: pointer;
+  position: absolute;
+  padding: .3em .5em;
+  border-radius: 1px;
+  background-color: rgba(244, 165, 96, 0.637);
+  bottom: 0;
+  right: 0;
+}
+
+.product-grid .product a:hover {
+  background-color: rgba(255, 0, 0, 0.493);
+}
+
+.product-grid .details {
+  padding: .5em;
+}
+
+.product-grid .details h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.product-grid .details p {
+  padding: .2em;
+  margin: 0;
+}
+
+.product-grid .details .price {
+  font-size: 1em;
+}
+
+.newProduct {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.473);
+  z-index: 100;
+  left: 0;
+  top: 0;
+}
+
+.newProduct .upload-content {
+  background-color: rgba(244, 165, 96, 0.856);
+  position: relative;
+  -webkit-box-shadow: black;
+          box-shadow: black;
+  margin: 10vh auto;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70%;
+  height: 50vh;
+  border-radius: 1em;
+  -webkit-transition: left ease-in 2s;
+  transition: left ease-in 2s;
+}
+
+.newProduct .upload-content .inputFields {
+  width: 60%;
+  text-align: left;
+}
+
+.newProduct .upload-content .inputFields .Field {
+  margin-top: 1em;
+}
+
+.newProduct .upload-content .inputFields input {
+  width: 100%;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  padding: 1em;
+}
+
+.newProduct .upload-content .inputFields label {
+  margin-bottom: .5em;
+  display: block;
+}
+
+.newProduct .upload-content .inputFields .imageField {
+  margin-bottom: 1em;
+}
+
+.newProduct .upload-content .inputFields .imageField label {
+  display: inline-block;
+}
+
+.newProduct .upload-content .inputFields .imageField input {
+  width: unset;
+  display: inline-block;
+}
+
+.newProduct .upload-content h1 {
+  font-size: large;
+  letter-spacing: .1em;
+  position: relative;
+  top: -1em;
+  padding: 1em;
+}
+
+.newProduct span {
+  cursor: pointer;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  padding: .5em;
+  border-radius: 1em;
+  font-size: 1.5em;
+}
+
+.newProduct span:hover {
+  color: red;
+  background-color: rgba(128, 128, 128, 0.336);
+}
+/*# sourceMappingURL=salepage.css.map */

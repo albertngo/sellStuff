@@ -16,9 +16,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 let loginRouter = require("./api/routes/login");
+let saleRouter = require("./api/routes/sale")
 
 //ROUTES
+app.use(express.static("uploads"));
+
 app.use("/login", loginRouter);
+app.use("/salepage", saleRouter)
 
 
 app.use((req,resp,next)=>{

@@ -4,16 +4,31 @@ let router = express.Router();
 let mongoose = require("mongoose");
 let User = require("../models/users")
 
-router.get("/newUser",(req,resp)=>{
-    // resp.render("login")
-    resp.status(200).json({
-        message:"Test Object",
-        hello: "djeqwife"
+router.put("/auth",(req,resp)=>{
+    User.findOne({email: req.body.email}).exec()
+    .then(result=>{
+        if (result.password === req.body.password){
+            resp.status(200).json({
+                message: "Authentication Success!"
+            })
+            console.log("Authentication Success!")
+        }
+        else {
+            resp.status(500).json({
+                errorCode: 310,
+                message: "Error: Failed Authenticaiton"
+            })            
+            console.log("failed pw/email combo")}
+    
     })
+    .catch(error=>({
+
+    }))
+
 })
+
 router.get("/",(req,resp)=>{
     resp.render("login")
-
 })
 
 router.post("/newUser",(req,resp)=>{
@@ -41,12 +56,12 @@ router.post("/newUser",(req,resp)=>{
         if (error.code == 11000){
             resp.status(500).json({
                 errorCode: error.code,
-                message: "The email address already exists"
+                message: "Error: Email address already exists"
             })
         } else{
             resp.status(500).json({
                 errorCode: 1020,
-                message: "Improper email address"
+                message: "Error: Improper email address"
             })
         }
 

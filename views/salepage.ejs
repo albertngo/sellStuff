@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/salepage/salepage.css">
+    <title>Login/Signup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet"> 
+</head>
+
+
+<body>
+    <nav class="navigation">
+        <h1>A L B .</h1>
+        <ul class="newBtn">
+            <li>New Product</li>
+        </ul>
+    </nav>
+
+
+<main>
+
+   
+    <h1 class="title">Products</h1>
+<div class="product-grid">
+    
+    <%for (let product of products) { %>
+    <%let imageSrc=product.image.replace("uploads\\", "")%>
+    <div class="product">
+        <img src="<%=imageSrc%>">
+        <div class="prod-details">
+            
+            <h1 class ="prod-name"><%=product.name%></h1>
+            <p class = "prod-desc"><%=product.description%></p>
+            <p >CA: $<span class = "price"><%=product.price%></span></p>
+        </div>
+
+        <a class="delete">
+            <p class="_id" style="display:none"><%=product._id%></p>
+            Delete</a>
+    
+
+    </div>
+
+    <% } %>
+
+
+
+
+
+</div>
+
+<div class="newProduct">
+
+    <div class="upload-content">
+        <form onsubmit="return false;"; class="inputFields">
+
+            <div class="nameField Field">
+                <label for="name" >Product Name: </label>
+                <input id="name" type = "text" name="name" placeholder="Required">
+            </div>
+            <div class="descField Field">
+                <label for="description" >Description: </label>
+                <input id="description" type = "textarea" name="description" placeholder="Required">
+            </div>
+            <div class="priceField Field">
+                <label for="price">Price: </label>
+                <input id="price" type = "number" name="price" placeholder="Required">
+            </div>
+            <div class="imageField Field">
+                <label for="imageField">Image: </label>
+                 <input id="image" type = "file" name="image">
+            </div>
+            
+            <input id="submit" type="submit" value="Submit" formmethod="POST">
+            <span class=exit>X</span>
+        </form>
+    </div>
+    
+</div>
+
+
+<script src="../clientJS/salepage.js"></script>
+
+
+
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

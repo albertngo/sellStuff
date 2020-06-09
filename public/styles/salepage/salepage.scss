@@ -1,0 +1,229 @@
+@mixin display($displaySize){
+    @media (min-width: #{$displaySize}){
+        @content;
+    }
+}
+
+$display: "500px";
+body{
+
+    margin:0;
+    padding:0;
+    min-width:480px;
+    font-family: 'Maven Pro', sans-serif;
+    background-color:  rgba(244, 165, 96, 0.479);
+    
+}
+
+ul,li,a{
+    padding:0;
+    margin:0;
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
+
+.navigation{
+    display:flex;
+    align-items: center;
+    padding:0 1em;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    transition: all ease-in 150ms;
+    // position:sticky;
+    // top:0px;
+    // z-index: 1000;
+    ul{
+        display:flex;
+        margin-left: auto;
+        margin-right: 1em;
+    }
+    li{
+        background-color: rgba(244, 165, 96, 0.596);;
+        padding:1em;
+        border-radius: 1em;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(46, 139, 86, 0.562);
+        }
+    }
+
+    a{
+        padding:1em;
+        display: inline-block;
+        letter-spacing: .2em;
+        
+        &:hover{
+            color: white;
+            background-color: rgb(244, 165, 96);
+
+
+        }
+    }
+}
+
+main{
+    position: relative;
+
+    margin-top: 0;
+}
+.title{
+    text-align: center;
+    width:90%;
+    margin:2em auto 0 auto;
+    text-decoration: underline;
+}
+
+
+//product list
+.product-grid{
+    letter-spacing: .05em;
+    line-height: 1.5em;
+    margin:2em auto;
+    width:90%;
+    // border: 1px solid black;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 3em;
+    
+    @include display($display){
+        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+       
+    }
+    
+    img{
+        width: 100%;
+        background-color: rgba(128, 128, 128, 0.096);
+        
+        
+    }
+
+    .product{
+        width:100%;
+        margin-bottom: 1em;
+        position: relative;
+        transition: all ease-in-out .1s;
+        
+        &:hover{
+            transform: scale(1.05);
+
+        }
+
+        a{
+            // display:none;
+            cursor: pointer;
+            position: absolute;
+            padding:.3em .5em;
+            border-radius: 1px;
+            background-color: rgba(244, 165, 96, 0.637);
+            bottom:0;
+            right:0;
+            &:hover {
+                background-color:  rgba(255, 0, 0, 0.493)
+            }
+        }
+
+        
+    }
+
+    .details{
+        padding:.5em;
+      h1{
+          padding:0;
+          margin:0;
+          font-size: 1.5em;
+      }  
+      p{
+          padding:.2em;
+          margin:0;
+      }
+      .price{
+          font-size: 1em;
+      }
+    }
+ 
+}
+
+//modal
+.newProduct{
+    display:none;
+    position:fixed;
+    height:100%;
+    width:100%;
+    background-color: rgba(128, 128, 128, 0.473);
+    z-index:100;
+    left:0;
+    top:0;
+
+    .upload-content{
+        
+        background-color: rgba(244, 165, 96, 0.856);
+        position: relative;
+        box-shadow:rgb(0, 0, 0);
+        margin: 10vh auto;
+        text-align: center;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width:70%;
+        height:50vh;
+        border-radius: 1em;
+        transition: left ease-in 2s;
+      
+        .inputFields{
+            width:60%;
+            text-align: left;
+            .Field{
+                margin-top: 1em;
+            }
+            input{
+                width:100%;
+                display: block;
+                box-sizing: border-box;
+                width:100%;
+                padding:1em;
+                
+            }
+            label{
+                margin-bottom: .5em;
+                display:block;
+            }
+
+            .imageField{
+                margin-bottom: 1em;
+                label{
+                    display:inline-block
+                }
+                input{
+                    width:unset;
+                    display:inline-block;
+
+                }
+            }
+
+        }
+
+        h1{
+            font-size: large;
+            letter-spacing: .1em;
+            position:relative;
+            top:-1em;
+            padding:1em;
+            
+        }  
+        
+    }
+    span{
+        cursor: pointer;
+        position:absolute;
+        top:5%;
+        right:5%;
+        padding:.5em;
+        border-radius: 1em;
+        font-size: 1.5em;
+        &:hover{
+            color: red;
+            background-color: rgba(128, 128, 128, 0.336);
+        }
+    }
+}
