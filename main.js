@@ -1,24 +1,7 @@
-let express = require("express");
-let server = express();
+let http = require("http");
+let app = require("./app");
 
-server.set("view engine", "ejs");
-server.use(express.static('public'));
-
-server.get("/",(req,resp)=>{
-    resp.render("login");
-})
-
-
-
-
-
-
-
-
-
-
-
-
+let server = http.createServer(app); 
 
 
 server.listen(5500);
