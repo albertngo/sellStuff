@@ -22,8 +22,7 @@ exitSpan.addEventListener("click",()=>{
 
 submitBtn.addEventListener("click",()=>{
     event.preventDefault();
-    
-    let price = document.querySelector("#price");
+
     let data = new FormData(form);
     fetch("/salepage/new-Product",{
         method: "POST",
@@ -33,6 +32,7 @@ submitBtn.addEventListener("click",()=>{
         if (response.status=== 200){
             //notify it has been added
             alert("Product Added!")
+
         } else {
             alert("All Fields Required!")
         }

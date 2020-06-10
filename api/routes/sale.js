@@ -1,9 +1,9 @@
-//LOGIN ROUTER
+//SALE ROUTER
 let express = require("express")
 let router = express.Router();
-let mongoose = require("mongoose");
 let multer = require("multer");
-let Product = require("../models/products")
+let salesController = require("../collections/salepage")
+
 
 let storage = multer.diskStorage({
     destination: function(req,file,cb){
@@ -18,58 +18,11 @@ let storage = multer.diskStorage({
 
 let upload = multer({storage:storage});
 
-router.get("/", (req,resp)=>{
-    //get all the products
-    Product.find().exec()
-    .then(products=>{
-        console.log(products);
-        resp.render("salepage", {products:products});
-    })
-    .catch(error=>{
-        console.log(produicts)
-    })
-    
-})
+router.get("/", salesController.sale_get_controller)
 
-router.delete("/", (req,resp)=>{
-    console.log(req.body.id);
-    //get all the products
-    Product.remove({_id: req.body.id}).exec()
-    .then(result=>{
-        resp.status(200).json({
-            message: "Delete Successful!"
-        })
-    })
-    .catch(error=>{
-        console.log(error)
-    })
-    
-})
+router.delete("/", salesController.sale_delete_controller)
 
-
-router.post("/new-Product",upload.single("image"), (req,resp)=>{
-    
-    // console.log(req.file);
-    let product = new Product({
-        _id: mongoose.Types.ObjectId(),
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        image: req.file.path
-    })
-
-    product.save()
-    .then(result=>{
-        resp.status(200).send("Object Created");
-    })
-    .catch(error=>{
-        console.log(error);
-        resp.status(500).json({
-            error: "All Fields Are Required"
-        });
-    })
-    
-})
+router.post("/new-Product" ,upload.single("image"), salesController.sale_post_controller)
 
 
 module.exports = router;

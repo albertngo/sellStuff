@@ -1,9 +1,8 @@
-
 let loginSignup = document.querySelector(".nav")
 let signupBtn = loginSignup.children[0];
 let loginBtn = loginSignup.children[1];
 
-let userType = document.querySelector(".typeField");
+
 let submitBtn = document.querySelector("#submit");
 let nameField = document.querySelector(".nameField");
 let emailLabel = document.querySelector(".emailField label");
@@ -11,7 +10,7 @@ let emailLabel = document.querySelector(".emailField label");
 signupBtn.addEventListener("click", ()=>{
     signupBtn.style.backgroundColor = "rgba(250, 128, 114, 0.411)"
     loginBtn.style.backgroundColor = "unset"
-    userType.style.display = "block";
+
     submitBtn.value = "Sign-up"; 
     nameField.style.display = "block";
     emailLabel.style.marginTop = "1em";
@@ -23,7 +22,7 @@ signupBtn.addEventListener("click", ()=>{
 loginBtn.addEventListener("click", ()=>{
     loginBtn.style.backgroundColor = "rgba(250, 128, 114, 0.411)"
     signupBtn.style.backgroundColor = "unset"
-    userType.style.display = "none";
+
     email.style.border = "";
     password.style.border = "";
     submitBtn.value = "Login"; 
@@ -34,7 +33,7 @@ loginBtn.addEventListener("click", ()=>{
 })
 let email = document.querySelector("#email")
 let password = document.querySelector("#password")
-let type =  document.querySelector("#userType")
+
 let name =  document.querySelector("#name")
 
 submitBtn.addEventListener("click", (event)=>{
@@ -44,7 +43,6 @@ submitBtn.addEventListener("click", (event)=>{
     let bodyObject = {
         email: email.value,
         password: password.value,
-        type: type.value ,
         name: name.value
     }
     if (!email.value) {
